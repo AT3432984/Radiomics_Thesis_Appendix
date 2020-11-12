@@ -1,0 +1,57 @@
+mydata= read.csv("<inputfile.csv>", stringsAsFactors=FALSE)
+str(mydata)
+
+#remove the accession numbers
+mydata <- mydata[-1]
+head(mydata)
+table(mydata$event)
+
+mydata$status <- factor(mydata$event, levels = c("0", "1"), labels = c("Alive", "Dead"))
+
+#it gives the result in the percentage form rounded of to 1 decimal place( and so it's digits = 1)
+#round(prop.table(table(mydata$status)) * 100, digits = 1)
+
+#normalising
+normalize <- function(x) {
+  return ((x - min(x)) / (max(x) - min(x))) }
+mydata_n <- as.data.frame(lapply(mydata[2:7], normalize))
+#check
+#summary(mydata_n$original_firstorder_Kurtosis)
+
+#Splicing
+set.seed(109)
+dat.d <- sample(1:nrow(mydata_n),size=nrow(mydata_n)*0.75,replace = FALSE)
+
+#Creating training and test data set
+mydata_train <- mydata_n[dat.d,]
+mydata_test <- mydata_n[-dat.d,]
+
+mydata_train_labels <- mydata[dat.d, 1]
+mydata_test_labels <- mydata[-dat.d, 1] 
+
+#Training a model on data
+#install.packages("class")
+library(class)
+mydata_test_pred <- knn(train = mydata_train, test = mydata_test,cl = mydata_train_labels, k=9)
+
+#Evaluate the model performance
+#install.packages("gmodels")
+library (gmodels)
+CrossTable(x=mydata_test_labels, y=mydata_test_pred,prop.chisq=FALSE)
+
+table(mydata_test_pred ,mydata_test_labels)
+library(caret)
+confusionMatrix(table(mydata_test_pred ,mydata_test_labels))
+
+#Optimisation
+i=1
+k.optm=1
+for (i in 1:12){
+  knn.mod <- knn(train=mydata_train, test=mydata_test, cl=mydata_train_labels, k=i)
+  k.optm[i] <- 100 * sum(mydata_test_labels == knn.mod)/NROW(mydata_test_labels)
+  k=i
+  cat(k,'=',k.optm[i],' ')
+}
+
+#Accuracy plot
+plot(k.optm, type="b", xlab="K- Value",ylab="Accuracy level")
