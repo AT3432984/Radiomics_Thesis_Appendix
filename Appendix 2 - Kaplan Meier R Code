@@ -1,0 +1,31 @@
+library (survival)
+mydata<-read.csv("<inputfile.csv>", header = TRUE, row.names = 1);
+attach(mydata)
+
+
+#define variables
+time <- time
+event <- event
+group <- grade
+
+
+#Descriptive statistics
+summary (time)
+summary (event)
+summary (group)
+
+#Kaplan-Meier non parametric analysis by group
+kmsurvival1 <- survfit(Surv(time, event) ~ group)
+summary (kmsurvival1)
+plot(kmsurvival1, lty = 2:2,lwd=3,col=3:4, xlab="Time between diagnosis and death (months)", ylab="% Survival Probability")
+lLab <- gsub("group=","",names(kmsurvival1$strata))  ## legend labels
+legend(
+  "topright",
+  legend=lLab,
+  col=3:4,
+  lty=2:2,
+  horiz=FALSE,
+  bty='n')
+
+
+summary(kmsurvival1, times = 60)
