@@ -1,0 +1,287 @@
+R<- read.csv("<inputfile.csv>", header = TRUE, row.names = 1);
+R<-R
+library (rms)
+library (Hmisc)
+library (ResourceSelection)
+attach(R)
+
+#Cox proportional hazard model --coefficients and hazard rates
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_10Percentile, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_90Percentile, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Energy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Entropy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_InterquartileRange, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Kurtosis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Maximum, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_MeanAbsoluteDeviation, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Mean, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Median, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Minimum, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Range, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_RobustMeanAbsoluteDeviation, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_RootMeanSquared, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Skewness, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_TotalEnergy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Uniformity, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_firstorder_Variance, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_Autocorrelation, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_ClusterProminence, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_ClusterShade, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_ClusterTendency, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_Contrast, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_Correlation, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_DifferenceAverage, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_DifferenceEntropy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_DifferenceVariance, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_Id, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_Idm, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_Idmn, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_Idn, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_Imc1, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_Imc2, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_InverseVariance, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_JointAverage, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_JointEnergy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_JointEntropy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_MCC, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_MaximumProbability, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_SumAverage, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_SumEntropy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glcm_SumSquares, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_DependenceEntropy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_DependenceNonUniformity, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_DependenceNonUniformityNormalized, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_DependenceVariance, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_GrayLevelNonUniformity, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_GrayLevelVariance, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_HighGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~original_gldm_LargeDependenceEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_LargeDependenceHighGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_LargeDependenceLowGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_LowGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_SmallDependenceEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_SmallDependenceHighGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_gldm_SmallDependenceLowGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_GrayLevelNonUniformity, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_GrayLevelNonUniformityNormalized, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_GrayLevelVariance, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_HighGrayLevelRunEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_LongRunEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_LongRunHighGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_LongRunLowGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_LowGrayLevelRunEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_RunEntropy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_RunLengthNonUniformity, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_RunLengthNonUniformityNormalized, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_RunPercentage, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_RunVariance, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_ShortRunEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_ShortRunHighGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glrlm_ShortRunLowGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_GrayLevelNonUniformity, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_GrayLevelNonUniformityNormalized, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_GrayLevelVariance, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_HighGrayLevelZoneEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_LargeAreaEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_LargeAreaHighGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_LargeAreaLowGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_LowGrayLevelZoneEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_SizeZoneNonUniformity, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_SizeZoneNonUniformityNormalized, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_SmallAreaEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_SmallAreaHighGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_SmallAreaLowGrayLevelEmphasis, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_ZoneEntropy, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_ZonePercentage, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_glszm_ZoneVariance, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_ngtdm_Busyness, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_ngtdm_Coarseness, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_ngtdm_Complexity, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_ngtdm_Contrast, method="breslow")
+summary(coxph)
+
+coxph<- coxph(Surv(time, event)~ original_ngtdm_Strength, method="breslow")
+summary(coxph)
