@@ -1,0 +1,50 @@
+R<- read.csv("<inputfile.cas>", header = TRUE, row.names = 1);
+R<-R
+library (rms)
+library (Hmisc)
+library (ResourceSelection)
+attach(R)
+
+
+
+Kurtosis <- cor.test(R$event, R$original_firstorder_Kurtosis, 
+                method = "pearson")
+GrayLevelNonUniformityNormalized <- cor.test(R$event, R$original_glszm_GrayLevelNonUniformityNormalized, 
+                method = "pearson")
+GrayLevelVariance <- cor.test(R$event, R$original_glszm_GrayLevelVariance, 
+                method = "pearson")
+HighGrayLevelZoneEmphasis <- cor.test(R$event, R$original_glszm_HighGrayLevelZoneEmphasis, 
+                method = "pearson")
+LowGrayLevelZoneEmphasis <- cor.test(R$event, R$original_glszm_LowGrayLevelZoneEmphasis, 
+                method = "pearson")
+ZonePercentage <- cor.test(R$event, R$original_glszm_ZonePercentage, 
+                method = "pearson")
+
+Kurtosis_r <- cor(R$event, R$original_firstorder_Kurtosis, 
+    method = "pearson")
+GrayLevelNonUniformityNormalized_r <- cor(R$event, R$original_glszm_GrayLevelNonUniformityNormalized, 
+    method = "pearson")
+GrayLevelVariance_r <- cor(R$event, R$original_glszm_GrayLevelVariance, 
+    method = "pearson")
+HighGrayLevelZoneEmphasis_r <- cor(R$event, R$original_glszm_HighGrayLevelZoneEmphasis, 
+    method = "pearson")
+LowGrayLevelZoneEmphasis_r <- cor(R$event, R$original_glszm_LowGrayLevelZoneEmphasis, 
+    method = "pearson")
+ZonePercentage_r <- cor(R$event, R$original_glszm_ZonePercentage, 
+    method = "pearson")
+
+Kurtosis_r
+GrayLevelNonUniformityNormalized_r
+GrayLevelVariance_r
+HighGrayLevelZoneEmphasis_r
+LowGrayLevelZoneEmphasis_r
+ZonePercentage_r
+
+Kurtosis
+GrayLevelNonUniformityNormalized
+GrayLevelVariance
+HighGrayLevelZoneEmphasis
+LowGrayLevelZoneEmphasis
+ZonePercentage
+
+
